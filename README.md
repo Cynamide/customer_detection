@@ -66,6 +66,8 @@ Social-Distancing
 |   |   ...
 ...
 ```
+## Installing Tesseract (On windows)
+Head over to the download page https://github.com/UB-Mannheim/tesseract/wiki. This was tested with the 64bit version of the installer. Download the installer and install tesseract. Make sure you remember the install location while installing. The default location is ```bash C:\Program Files\Tesseract-OCR```  
 ## Running the Customer Detection monitor using YOLOv4
 ```bash
 # Run yolov4 deep sort social distancing monitor on video (It will take some time to execute)
