@@ -1,10 +1,10 @@
-# Social-Distancing Monitor
+# Customer interactions with store layout.
 
-Social-Distancing Monitor implemented with YOLOv4, DeepSort, and TensorFlow. YOLOv4 is a state of the art algorithm that uses deep convolutional neural networks to perform object detections. We can take the output of YOLOv4 feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order to create a highly accurate object tracker and use the tracks to identify who are not maintaning a safe distance.
+Customer interaction monitor implemented with YOLOv4, DeepSort, and TensorFlow. YOLOv4 is a state of the art algorithm that uses deep convolutional neural networks to perform object detections. We can take the output of YOLOv4 feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order to create a highly accurate object tracker and use the tracks to identify who are not maintaning a safe distance.
 
-## Demo of Social Distancing Monitor
+## Demo of Customer interaction monitor
 <p align="center"><img src="data/helpers/demo.gif"\></p>
-This was tested on NVIDIA GeForce GTX 1050 Ti
+This was tested on NVIDIA GeForce RTX 2060 
 
 Check the video in outputs/ to see the output in full resolution.
 
@@ -46,7 +46,7 @@ Copy the two folders named yolov4-416 and yolov4-tiny-416 into the directory nam
 ```
 Social-Distancing
 │   README.md
-│   sociald.py
+│   customer_detection.py
 |   ...
 │
 └───checpoints
@@ -66,22 +66,18 @@ Social-Distancing
 |   |   ...
 ...
 ```
-## Running the Social Distancing monitor using YOLOv4
+## Running the Customer Detection monitor using YOLOv4
 ```bash
 # Run yolov4 deep sort social distancing monitor on video (It will take some time to execute)
-python sociald.py --video ./data/video/test.mp4 --output ./outputs/demo.avi --model yolov4
-
-
-# Run yolov4 deep sort social distancing monitor on webcam (set video flag to 0)
-python sociald.py --video 0 --output ./outputs/webcam.avi --model yolov4
+python customer_detection.py --video ./data/video/Part1.mp4 --output ./outputs/demo.avi --model yolov4
 ```
 The output flag allows you to save the resulting video of the object tracker running so that you can view it again later. Video will be saved to the path that you set. (outputs folder is where it will be if you run the above command!)
 
-## Running the Social Distancing Monitor with YOLOv4-Tiny
+## Running the Customer Detection Monitor with YOLOv4-Tiny
 The following commands will allow you to run yolov4-tiny model. Yolov4-tiny allows you to obtain a higher speed (FPS) for the tracker at a slight cost to accuracy. Make sure that you have downloaded the tiny weights file and added it to the checkpoints folder for this to work!
 ```
 # Run yolov4-tiny object tracker
-python sociald.py --weights ./checkpoints/yolov4-tiny-416 --model yolov4 --video ./data/video/test.mp4 --output ./outputs/tiny.avi --tiny
+python customer_detection.py --weights ./checkpoints/yolov4-tiny-416 --model yolov4 --video ./data/video/Part1.mp4 --output ./outputs/tiny.avi --tiny
 ```
 
 ## Resulting Video
