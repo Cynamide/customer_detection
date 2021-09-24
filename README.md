@@ -9,9 +9,9 @@ This was tested on NVIDIA GeForce RTX 2060
 Check the video in outputs/ to see the output in full resolution.
 
 ## Getting Started
-To get started, install the proper dependencies either via Anaconda or Pip. I recommend Anaconda route for people using a GPU as it configures CUDA toolkit version for you. I also recommend using a GPU for a smooth framerate.
+To get started, install the proper dependencies either via Anaconda. I recommend Anaconda route for people using a GPU as it configures CUDA toolkit version for you. I also recommend using a GPU for a smooth framerate.
 
-### Conda (Recommended)
+### Conda 
 
 ```bash
 # Tensorflow CPU
@@ -22,19 +22,6 @@ conda activate yolov4-cpu
 conda env create -f conda-gpu.yml
 conda activate yolov4-gpu
 ```
-
-### Pip
-```bash
-# TensorFlow CPU
-pip install -r requirements.txt
-
-# TensorFlow GPU
-pip install -r requirements-gpu.txt
-```
-### Nvidia Driver (For GPU, if you are not using Conda Environment and haven't set up CUDA yet)
-Make sure to use **CUDA Toolkit version 10.1** as it is the proper version for the TensorFlow version used in this repository.
-https://developer.nvidia.com/cuda-10.1-download-archive-update2
-
 ## Installing Tesseract (On windows)
 Tesseract is being used to extract date-time informatiom from the video. Head over to the download page https://github.com/UB-Mannheim/tesseract/wiki. This was tested with the 64bit version of the installer. Download the installer and install tesseract. Make sure you remember the install location while installing. The default location should be like this ```C:\Program Files\Tesseract-OCR```. 
 If your download location is the same as mentioned before, you can proceed to the next step. If you installed it in a custom location,
