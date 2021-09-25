@@ -78,6 +78,6 @@ The .csv data is stored in the outputs folder by default as well named ```data.c
 
 ### References  
 
-   Huge thanks goes to TheAIGuy, hunglc007 and nwojke for creating the backbones of this repository:
+   Huge thanks goes to TheAIGuy, hunglc007 and nwojke for creating the backbones of YOLOv4 and DeepSort:
   * [Object tracker using TF, YOLOv4 and DeepSORT](https://github.com/theAIGuysCode/yolov4-deepsort)
   * [Deep SORT Repository](https://github.com/nwojke/deep_sort)
