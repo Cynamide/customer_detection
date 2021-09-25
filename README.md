@@ -33,14 +33,53 @@ to the value of your custom location. For example if the custom loction is ```C:
 ```bash
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\Public\Documents\Tesseract-OCR\tesseract.exe'
 ```
+## Downloading YOLOv4 Pre-trained Weights
+Our object tracker uses YOLOv4 to make the object detections, which deep sort then uses to track. There exists an official pre-trained YOLOv4 object detector model that is able to detect 80 classes. For easy demo purposes we will use the pre-trained weights for our tracker.
+Download pre-trained yolov4 and yolov4-tiny tensorflow model: https://drive.google.com/file/d/1r0aHB-dVZb_tTR0NMwFLatAfEp8OmHj-/view?usp=sharing
 
+Extract the file named YOLOTFModel.zip which contains YOLOv4 and YOLOv4-tiny tensorflow weights and model.
+Copy the two folders named yolov4-416 and yolov4-tiny-416 into the directory named checkpoints.
+
+## The directory tree should be like this
+```
+customer_detection
+│   README.md
+│   customer_detection.py
+|   ...
+│
+└───checpoints
+│   └───yolov4-416
+|   |   |   assets
+|   |   |   variables
+|   |   |   saved_model.pb
+│   │
+│   └───yolov4-tiny-416
+│       │   assets
+│       │   variables
+│       │   saved_model.pb
+│   
+└───core
+|   │   ...
+└───data
+|   |   ...
+...
+```
 
 ## Running the Customer Detection monitor using YOLOv4
 ```bash
 # Run yolov4 deep sort social distancing monitor on video (It will take some time to execute)
 python customer_detection.py --video ./data/video/Part1.mp4 --output ./outputs/demo.avi --model yolov4
+
+# Run yolov4 deep sort social distancing monitor on webcam (set video flag to 0)
+python customer_detection.py --video 0 --output ./outputs/webcam.avi --model yolov4
 ```
 The output flag allows you to save the resulting video of the object tracker running so that you can view it again later. Video will be saved to the path that you set. (outputs folder is where it will be if you run the above command!)
+## Running the Social Distancing Monitor with YOLOv4-Tiny
+The following commands will allow you to run yolov4-tiny model. Yolov4-tiny allows you to obtain a higher speed (FPS) for the tracker at a slight cost to accuracy. Make sure that you have downloaded the tiny weights file and added it to the checkpoints folder for this to work!
+```
+# Run yolov4-tiny object tracker
+python sociald.py --weights ./checkpoints/yolov4-tiny-416 --model yolov4 --video ./data/video/test.mp4 --output ./outputs/tiny.avi --tiny
+```
 
 ## Resulting Video/In out data
 As mentioned above, the resulting video will save to wherever you set the ``--output`` command line flag path to. I always set it to save to the 'outputs' folder. You can also change the type of video saved by adjusting the ``--output_format`` flag, by default it is set to AVI codec which is XVID.
