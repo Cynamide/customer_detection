@@ -67,14 +67,14 @@ customer_detection
 
 ## Running the Customer Detection monitor using YOLOv4
 ```bash
-# Run yolov4 deep sort social distancing monitor on video (It will take some time to execute)
+# Run yolov4 deep sort customer detection monitor on video (It will take some time to execute)
 python customer_detection.py --video ./data/video/Part1.mp4 --output ./outputs/demo.avi --model yolov4
 
-# Run yolov4 deep sort social distancing monitor on webcam (set video flag to 0)
+# Run yolov4 deep sort customer detection monitor on webcam (set video flag to 0)
 python customer_detection.py --video 0 --output ./outputs/webcam.avi --model yolov4
 ```
 The output flag allows you to save the resulting video of the object tracker running so that you can view it again later. Video will be saved to the path that you set. (outputs folder is where it will be if you run the above command!)
-## Running the Social Distancing Monitor with YOLOv4-Tiny
+## Running the Customer Detection Monitor with YOLOv4-Tiny
 The following commands will allow you to run yolov4-tiny model. Yolov4-tiny allows you to obtain a higher speed (FPS) for the tracker at a slight cost to accuracy. Make sure that you have downloaded the tiny weights file and added it to the checkpoints folder for this to work!
 ```
 # Run yolov4-tiny object tracker
@@ -88,7 +88,7 @@ The .csv data is stored in the outputs folder by default as well named ```data.c
 ## Command Line Args Reference
 
 ```bash
- sociald.py:
+ customer_detection.py:
   --video: path to input video (use 0 for webcam)
     (default: './data/video/test.mp4')
   --output: path to output video (remember to set right codec for given format. e.g. XVID for .avi)
